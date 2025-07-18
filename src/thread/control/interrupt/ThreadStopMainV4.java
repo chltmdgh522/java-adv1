@@ -34,7 +34,7 @@ public class ThreadStopMainV4 {
             try {
                 log("자원 정리 시도");
 
-                Thread.sleep(1000);
+                Thread.sleep(10000);
                 log("자원 정리 완료");
             } catch (InterruptedException e) {
                 log("자원 정리 실패 - 자원 정리 중 인터럽트 발생");
