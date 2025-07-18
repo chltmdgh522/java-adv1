@@ -21,8 +21,8 @@ public class ThreadStopMainV3 {
         @Override
         public void run() {
 
-            // true여야지 나감 false면 runnable 상태임
-            while (!Thread.currentThread().isInterrupted()) {  // 인터럽트 상태 변경 X
+            // 인터럽트 상태 변경 O 여기서 상태 바로 바꿈 이전은 체크 용도였다면
+            while (!Thread.interrupted()) {
                 log("작업 중");
             }
 
@@ -35,7 +35,7 @@ public class ThreadStopMainV3 {
 
                 // 자원 정리중 인터럽트 발생하지 않길 원하는데 sleep 만나면 터짐...
                 Thread.sleep(1000);
-                log("자원 정리 와나료");
+                log("자원 정리 완료");
             } catch (InterruptedException e) {
                 log("자원 정리 실패 - 자원 정리 중 인터럽트 발생");
                 log("work 스레드 인터럽트 상태3 = " + Thread.currentThread().isInterrupted());
