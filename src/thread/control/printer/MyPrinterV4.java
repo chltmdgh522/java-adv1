@@ -28,6 +28,7 @@ public class MyPrinterV4 {
         Queue<String> jobQueue = new ConcurrentLinkedQueue<>();
 
         @Override
+
         public void run() {
             while (!Thread.interrupted()) {
                 if (jobQueue.isEmpty()) {
