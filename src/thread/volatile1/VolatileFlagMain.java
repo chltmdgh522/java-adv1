@@ -21,18 +21,21 @@ public class VolatileFlagMain {
         log("main 종료");
     }
 
-    static class MyTask implements Runnable{
+    static class MyTask implements Runnable {
+        // boolean runFlag = true;
 
-        boolean runFlag = true;
+        // 캐시 메모리를 직접 사용하지 않아 성능이 느려질 수 있음 필요할때만 사용
+        // 즉 바꾼값을 바로 적용
+        volatile boolean runFlag = true;
+
         @Override
         public void run() {
             log("task 시작");
 
-            while(runFlag){
+            while (runFlag) {
                 // rungFlag가 false로 변하면 탈출
 
             }
-            sleep(10000);
             log("task 종료");
         }
     }
