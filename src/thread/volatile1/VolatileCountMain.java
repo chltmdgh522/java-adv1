@@ -32,6 +32,7 @@ public class VolatileCountMain {
         public void run() {
             while (flag) {
                 count++;
+
                 if (count % 100_000_000 == 0) {
                     log("flag = " + flag + ", count = " + count + " in while()");
                 }
