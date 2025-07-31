@@ -17,6 +17,7 @@ public class BankAccountV1 implements BankAccount {
         log("[검증 시작] 출금액: " + amount + ", 잔액: " + balance);
 
         // 잔고가 출금액 보다 적으면, 진행하면 안됨
+        /// ======= 변하면 안됨!! 한번에 하나의 스레드만 실행 즉 여기는 임계 영역 ============
         if (balance < amount) {
             log("[검증 실패] 출금액: " + amount + ", 잔액: " + balance);
             return false;
@@ -27,7 +28,7 @@ public class BankAccountV1 implements BankAccount {
         sleep(1000); // 출금에 걸리는 시간으로 가정
         balance = balance - amount;
         log("[출근 완료] 출금액: " + amount + ", 잔액: " + balance);
-
+        /// ========================================================
 
         log("거래 종료");
         return true;
