@@ -15,8 +15,8 @@ public class LockSupportMainV1 {
         log("Thread-1 state: " + thread1.getState());
 
         log("main -> unpark(Thread-1)");
-         LockSupport.unpark(thread1); // 1. unpark 사용
-        // thread1.interrupt(); // 2. interrupt() 사용
+        // LockSupport.unpark(thread1); // 1. unpark 사용
+         thread1.interrupt(); // 2. interrupt() 사용
         // 즉 wating 상태의 스레드는 인터럽트 걸어서 중간에 깨울 수 있다. blocked 못깨움
     }
 
